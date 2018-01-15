@@ -118,7 +118,6 @@
 }
 
 @media only screen
-and (min-device-width: 768px)
 and (max-device-width: 1024px)
 and (-webkit-min-device-pixel-ratio: 1) {
   .grid--1of3, .grid--1of3 > .grid-cell {
@@ -132,7 +131,6 @@ and (-webkit-min-device-pixel-ratio: 1) {
   }
 }
 @media only screen
-and (min-device-width: 768px)
 and (max-device-width: 1024px)
 and (-webkit-min-device-pixel-ratio: 2) {
   .grid--1of3, .grid--1of3 > .grid-cell {

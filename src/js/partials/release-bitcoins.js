@@ -1,6 +1,6 @@
 (function () {
     [].forEach.call(document.querySelectorAll('.release-bitcoins-btn'), function(el) {
-        el.addEventListener('click', function(e) {
+        el.addEventListener(eventtype, function(e) {
             var self = this;
             var activeTab = self.closest('body').querySelector('.tab-panel__tab-item.is-active');
             var isPaid = activeTab.querySelector('.paid-status-text').innerText.toLowerCase();

@@ -227,14 +227,14 @@
             flex: 0 0 66.6666%; }
     @media only screen and (max-width: 1067px) {
       .grid--1of3 > .grid-cell.grid-cell--2of3 {
-        -webkit-box-flex: 0;
-            -ms-flex: 0 0 100%;
-                flex: 0 0 100%; } }
+        -webkit-box-flex: 1;
+            -ms-flex: auto;
+                flex: auto; } }
   @media only screen and (max-width: 1067px) {
     .grid--1of3 > .grid-cell {
-      -webkit-box-flex: 0;
-          -ms-flex: 0 0 100%;
-              flex: 0 0 100%; } }
+      -webkit-box-flex: 1;
+          -ms-flex: auto;
+              flex: auto; } }
 
 .grid--1of4 > .grid-cell {
   -webkit-box-flex: 0;
@@ -242,18 +242,34 @@
           flex: 0 0 25%; }
   @media only screen and (max-width: 1199px) {
     .grid--1of4 > .grid-cell {
-      -webkit-box-flex: 0;
-          -ms-flex: 0 0 100%;
-              flex: 0 0 100%; } }
+      -webkit-box-flex: 1;
+          -ms-flex: auto;
+              flex: auto; } }
   .grid--1of4 > .grid-cell.grid-cell--3of4 {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 75%;
             flex: 0 0 75%; }
     @media only screen and (max-width: 1199px) {
       .grid--1of4 > .grid-cell.grid-cell--3of4 {
-        -webkit-box-flex: 0;
-            -ms-flex: 0 0 100%;
-                flex: 0 0 100%; } }
+        -webkit-box-flex: inherit;
+            -ms-flex: inherit;
+                flex: inherit; } }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .grid--1of3, .grid--1of3 > .grid-cell {
+    display: block;
+    width: 100%; }
+  .grid--1of4, .grid--1of4 > .grid-cell {
+    display: block;
+    width: 100%; } }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .grid--1of3, .grid--1of3 > .grid-cell {
+    display: block;
+    width: 100%; }
+  .grid--1of4, .grid--1of4 > .grid-cell {
+    display: block;
+    width: 100%; } }
 
 @media (--break-sm) {
   .small-grid--fit > .grid-cell {
@@ -632,7 +648,8 @@ nav .navbar-menu .navbar-item {
     -ms-flex-negative: 0;
         flex-shrink: 0;
     width: 170px;
-    height: auto; }
+    height: auto;
+    margin-top: 4px; }
 
 #open-mobile-menu {
   position: absolute;

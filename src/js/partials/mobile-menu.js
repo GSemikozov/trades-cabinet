@@ -1,6 +1,6 @@
-{
+(function() {
 
-    let leftBurger          = document.getElementById('open-mobile-menu'),
+    var burger              = document.getElementById('open-mobile-menu'),
         wrapper             = document.getElementById('wrapper'),
         sideNav             = document.getElementById('mobile-menu'),
         overlay             = document.querySelector('.overlay'),
@@ -18,9 +18,9 @@
         wrapper.classList.remove('overflow-hidden');
     }
 
-    leftBurger.addEventListener('click', openNav);
-    closeBtn.addEventListener('click', closeNav);
-    overlay.addEventListener('click', function () {
+    burger.addEventListener(eventtype, openNav);
+    closeBtn.addEventListener(eventtype, closeNav);
+    overlay.addEventListener(eventtype, function () {
         if (wrapper.classList.contains('overflow-hidden')) {
             wrapper.classList.remove('overflow-hidden');
         }
@@ -32,4 +32,4 @@
         closeNav();
     });
 
-}
+})();

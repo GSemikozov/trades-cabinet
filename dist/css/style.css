@@ -272,13 +272,13 @@
     width: 100%; } }
 
 @media only screen and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) {
-  .tab-pane, .grid.grid--1of3 {
-    display: block !important;
+  .tab-pane.is-active, .grid.grid--1of3 {
+    display: block;
     width: 100%; } }
 
 @media only screen and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
-  .tab-pane, .grid.grid--1of3 {
-    display: block !important;
+  .tab-pane.is-active, .grid.grid--1of3 {
+    display: block;
     width: 100%; } }
 
 @media (--break-sm) {

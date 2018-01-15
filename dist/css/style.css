@@ -490,7 +490,7 @@
   .navbar-link a:hover,
   .navbar-link a.is-active {
     text-decoration: underline;
-    font-weight: 700; }
+    text-shadow: 0 0 0 #fff; }
 
 .navbar-item a,
 .navbar-link a {

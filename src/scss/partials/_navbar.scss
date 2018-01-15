@@ -16,7 +16,7 @@
   }
   &:hover, &.is-active {
     text-decoration: underline;
-    font-weight: 700;
+    text-shadow: 0 0 0 #fff;
   }
 }
 .navbar-item a,

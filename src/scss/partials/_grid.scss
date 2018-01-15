@@ -120,7 +120,7 @@
 @media only screen
 and (max-device-width: 1024px)
 and (-webkit-min-device-pixel-ratio: 1) {
-  .grid--1of3, .grid--1of3 > .grid-cell {
+  .grid.grid--1of3, .grid--1of3 > .grid-cell {
     display: block;
     width: 100%;
   }
@@ -133,7 +133,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 @media only screen
 and (max-device-width: 1024px)
 and (-webkit-min-device-pixel-ratio: 2) {
-  .grid--1of3, .grid--1of3 > .grid-cell {
+  .grid.grid--1of3, .grid--1of3 > .grid-cell {
     display: block;
     width: 100%;
   }

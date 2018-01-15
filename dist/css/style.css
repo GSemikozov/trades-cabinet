@@ -256,7 +256,7 @@
                 flex: inherit; } }
 
 @media only screen and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-  .grid--1of3, .grid--1of3 > .grid-cell {
+  .grid.grid--1of3, .grid--1of3 > .grid-cell {
     display: block;
     width: 100%; }
   .grid--1of4, .grid--1of4 > .grid-cell {
@@ -264,7 +264,7 @@
     width: 100%; } }
 
 @media only screen and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
-  .grid--1of3, .grid--1of3 > .grid-cell {
+  .grid.grid--1of3, .grid--1of3 > .grid-cell {
     display: block;
     width: 100%; }
   .grid--1of4, .grid--1of4 > .grid-cell {

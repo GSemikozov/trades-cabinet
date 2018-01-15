@@ -1,0 +1,71 @@
+.button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 2.5rem;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1.125rem;
+  font-weight: 500;
+  height: 2.25em;
+  line-height: 1.355;
+  padding-bottom: calc(0.375em - 1px);
+  padding-top: calc(0.375em - 1px);
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  position: relative;
+  vertical-align: top;
+  user-select: none;
+  background-color: white;
+  color: $body-font-color;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.button-circle {
+  height: 50px;
+  width: 50px;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.button-default {
+  @include button-bg(#55D389, #ffffff, #66BF8B);
+  &.disabled {
+    box-shadow: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.button:focus, .button:active, .button.is-active {
+  outline: none;
+}
+
+.button[disabled] {
+  cursor: not-allowed;
+}
+
+.button strong {
+  color: inherit;
+}
+
+.button[disabled] {
+  background-color: white;
+  border-color: #dbdbdb;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.button.is-fullwidth {
+  display: flex;
+  width: 100%;
+}
+
+.release-bitcoins-btn {
+  box-shadow: 0 1px 8px rgba(127,127,127, .3);
+}

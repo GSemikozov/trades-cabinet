@@ -1,0 +1,134 @@
+.navbar-item,
+.navbar-link {
+  display: block;
+  padding: 0.6rem 1rem;
+}
+.navbar-item a,
+.navbar-link a {
+  color: #fff;
+  line-height: 1.2;
+  position: relative;
+  font-weight: 500;
+  font-size: 1.175rem;
+  margin: 0;
+  @media only screen and (min-width: 768px) and (max-width: 930px) {
+    font-size: 80%;
+  }
+  &:hover, &.is-active {
+    text-decoration: underline;
+    font-weight: 700;
+  }
+}
+.navbar-item a,
+.navbar-link a {
+  text-decoration: none;
+}
+
+.navbar-menu {
+  background-color: #fff;
+  border-bottom: 1px solid #ececec;
+  box-shadow: 0 0 2px rgba(127,127,127,.2);
+}
+.navbar-menu a.navbar-item, .navbar-menu .navbar-link {
+  text-transform: uppercase;
+}
+.navbar-menu a.navbar-item:hover, .navbar-menu a.navbar-item.is-active,
+.navbar-menu .navbar-link:hover,
+.navbar-menu .navbar-link.is-active {
+  color: #fff;
+}
+nav .navbar-menu .navbar-item {
+  padding: 15px 30px;
+  color: #111111;
+  border-right: 1px solid #ececec;
+  transition: all .3s ease-in-out;
+  &.is-active, &:hover {
+    background-color: #f4f9fb;
+    cursor: pointer;
+    a {
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+  &.is-active {
+    box-shadow: inset 0 1px 2px rgba(127,127,127,1);
+  }
+  &:last-child {
+    padding-right: 30px;
+  }
+  a {
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .status {
+    font-size: .85rem;
+    text-decoration: underline;
+  }
+}
+.navbar-menu .navbar-item a.bages .bage-wrapper {
+  position: relative;
+}
+.navbar-menu .navbar-item a.bages {
+  position: relative;
+  .bage {
+    position: absolute;
+    top: -11px;
+    left: 100%;
+    display: inline-block;
+    border-radius: 10px;
+    height: 20px;
+    line-height: 16px;
+    text-align: center;
+    padding: 2px 7px;
+    background-color: #FD7823;
+    color: #fff;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 12px;
+  }
+  &.bages-icon .bage {
+    left: calc(100% - 9px);
+  }
+}
+
+.navbar-item {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 1068px) {
+  .navbar, nav,
+  .navbar-start,
+  .navbar-end {
+    align-items: stretch;
+    display: flex;
+    .navbar-item,
+    .navbar-link {
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+  .navbar-item,
+  .navbar-link {
+    align-items: center;
+    display: flex;
+  }
+  .navbar-burger {
+    display: none;
+  }
+  .navbar-menu {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  .navbar-start {
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+  .navbar-end {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+}

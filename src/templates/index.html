@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta content='IE=9' http-equiv='X-UA-Compatible'>
+    <meta content='initial-scale=1.0, user-scalable=no' name='viewport'>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="theme-default">
+<div id='wrapper'>
+
+    <div class="overlay"></div>
+
+    <header role="banner">
+        <partial src="_header_top_panel.html" title="header"></partial>
+        <partial src="_main_menu.html" title="main-menu"></partial>
+        <partial src="_mobile_menu.html" title="mobile-menu"></partial>
+    </header>
+    <main role="main">
+        <div class="grid grid--1of4">
+            <div class="grid-cell">
+                <partial src="_tab_panel.html" title="tab-panel"></partial>
+            </div>
+            <div class="grid-cell grid-cell--3of4">
+                <partial src="_tab_content.html" title="tab-content"></partial>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+
+<script src="js/main.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</body>
+</html>

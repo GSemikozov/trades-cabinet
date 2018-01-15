@@ -1,0 +1,165 @@
+@import '_variables';
+@import '_theme-variables';
+
+// Different devices resolutions
+@mixin respond-to($media, $from: "max-width", $custom: "") {
+  @if $media == phones-small {
+    @media only screen and (#{$from}: $screen-xs-max) {
+      @content;
+    }
+  } @else if $media == phones {
+    @media only screen and (#{$from}: $screen-sm-max) {
+      @content;
+    }
+  } @else if $media == tablets-small {
+    @media only screen and (#{$from}: $screen-md-max) {
+      @content;
+    }
+  } @else if $media == tablets-large {
+    @media only screen and (#{$from}: $screen-lg-max) {
+      @content;
+    }
+  } @else if $media == desktops {
+    @media only screen and (min-width: $screen-xl-min) {
+      @content;
+    }
+  } @else if $media == custom {
+    @media only screen and ($from: $custom) {
+      @content;
+    }
+  }
+}
+
+// Define theme variables
+$themes: (
+        default: ( // default theme
+                bg-color: $white,
+                bg-light-color: $white,
+                bg-dark-color: $black,
+                theme-color-disabled: $grey-light,
+                text-color-default: $body-font-color,
+                text-theme-color: $body-font-color,
+                text-theme-color-secondary: $black,
+                text-theme-color-tertiary: $grey,
+                text-color-white: $text-white
+        ),
+        dark: (
+                bg-color: $dark-color-primary,
+                bg-light-color: $dark-color-tertiary,
+                bg-dark-color: $dark-color-secondary,
+                theme-color-disabled: $dark-color-disabled,
+                text-color-default: $body-font-color,
+                text-theme-color: $dark-color-primary,
+                text-theme-color-secondary: $dark-color-secondary,
+                text-theme-color-tertiary: $dark-color-tertiary,
+                text-color-white: $text-white
+        ),
+        blue: (
+                bg-color: $blue-color-primary,
+                bg-light-color: $grey-light,
+                bg-dark-color: $blue-color-secondary,
+                theme-color-disabled: $blue-color-disabled,
+                text-color-default: $body-font-color,
+                text-theme-color: $blue-color-primary,
+                text-theme-color-secondary: $blue-color-secondary,
+                text-theme-color-tertiary: $body-font-color,
+                text-color-white: $text-white
+        )
+);
+
+
+// Mixins and functions defined once
+@mixin themify() {
+  // Iterate over the themes
+  @each $theme-name, $theme in $themes {
+    $current-theme: $theme !global;
+    @if $theme-name == 'default' {
+      @content;
+    } @else {
+      .theme-#{$theme-name} & {
+        @content;
+      }
+    }
+  }
+}
+
+@function theme-get($key, $theme: $current-theme) {
+  $ret: map-get($theme, $key);
+  @if not $ret {
+    @error 'Your theme doesn\'t have a value for `#{$key}`.';
+  }
+  @return $ret;
+}
+
+// This is how you use your themes
+/*.example{
+  padding: 10px;
+  @include themify {
+    background: theme-get(bg-color);
+    color: theme-get(text-color-white);
+  }
+}*/
+
+@mixin no-selection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline-style: none;
+}
+
+/* mixin for multiline text */
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+  text-align: justify;
+  padding-right: 1em;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+@mixin ellipsis ($line-height, $lines: 2) {
+  // Fallback for non-webkit browsers.
+  // Fallback does not render ellipsis.
+  overflow: hidden;
+  //max-height: $max-height;
+  line-height: $line-height;
+  max-height: $line-height * $lines;
+
+  // Webkit solution for multiline ellipsis
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+
+  // Solution for Opera
+  text-overflow: -o-ellipsis-lastline;
+}
+
+@mixin button-bg($rounded-btn-bg, $rounded-btn-color, $rounded-btn-border-color) {
+  background: $rounded-btn-bg;
+  color: $rounded-btn-color;
+  border: 1px solid $rounded-btn-border-color;
+  &:hover, &:focus, &:active {
+    background: darken($rounded-btn-bg,8%);
+    color: $rounded-btn-color;
+    border-color: darken($rounded-btn-border-color,8%);
+    transition: all 0.3s ease;
+  }
+}

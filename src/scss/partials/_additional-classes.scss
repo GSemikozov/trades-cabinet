@@ -1,0 +1,29 @@
+@import '_mixins';
+.visible-xs {
+  @include respond-to(phones) {
+    display: block;
+  }
+}
+.hidden-xs {
+  @include respond-to(phones) {
+    display: none;
+  }
+}
+.visible-tablet {
+  display: none;
+  @include respond-to(tablets-small) {
+    display: block;
+  }
+}
+.hidden-tablet {
+  @include respond-to(tablets-small) {
+    display: none;
+  }
+}
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+.overflow-hidden {
+  overflow: hidden;
+}

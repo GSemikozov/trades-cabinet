@@ -1,0 +1,65 @@
+//Site Colors
+$white: #ffffff;
+$black: #000000;
+$grey: #8b929d;
+$grey-light: #e4e4e4;
+
+$text-white: $white;
+
+$dark: #563d7c;
+$deep-dark: #563d7c;
+$dark-light: #563d7c;
+$dark-lighter: #cdbfe3;
+
+$blue: #1e8cbe;
+$blue-hover: #1e8cbe;
+$blue-light: #1e8cbe;
+
+
+//Special colors
+$body-text-color: #424559;
+$border-color: $grey-light;
+
+
+/* BODY variables */
+//$body-font-size: 14px;
+$body-font-color: $body-text-color;
+$body-bg: #f6f7f9;
+
+/* content variables */
+$content-bg-color: $white;
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+$screen-xs:                  480px !default;
+$screen-xs-min:              $screen-xs !default;
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen
+$screen-sm:                  544px !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-phone-lg:              $screen-sm-min !default;
+
+// Small screen / tablet
+$screen-md:                  768px !default;
+$screen-md-min:              $screen-md !default;
+$screen-tablet:              $screen-md-min !default;
+
+// Medium screen / desktop
+$screen-lg:                  1068px !default;
+$screen-lg-min:              $screen-lg !default;
+$screen-desktop:             $screen-lg-min !default;
+
+// Large screen / wide desktop
+$screen-xl:                  1200px !default;
+$screen-xl-min:              $screen-xl !default;
+$screen-xl-desktop:          $screen-xl-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+$screen-lg-max:              ($screen-xl-min - 1) !default;

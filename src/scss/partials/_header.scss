@@ -1,0 +1,24 @@
+.header-top-panel {
+  padding: 20px 0;
+  background-color: #31374D;
+}
+
+#logo {
+  overflow: hidden;
+  @include respond-to(phones) {
+    height: 30px;
+    width: auto;
+  }
+  img {
+    flex-shrink: 0;
+    width: 170px;
+    height: auto;
+  }
+}
+
+#open-mobile-menu {
+  position: absolute;
+  right: 0;
+  top: 9px;
+  cursor: pointer;
+}

@@ -1,0 +1,45 @@
+{
+  "name": "paxfull-multitrade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.babel.js",
+  "scripts": {
+    "gulp": "./node_modules/.bin/gulp"
+  },
+  "dependencies": {
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-concat-css": "*",
+    "gulp-cssmin": "*",
+    "gulp-imagemin": "*",
+    "gulp-jshint": "*",
+    "gulp-livereload": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify-es": "*",
+    "gulp-watch": "*",
+    "gulp.spritesmith": "^6.2.1",
+    "imagemin-jpegoptim": "*",
+    "imagemin-optipng": "*",
+    "imagemin-svgo": "*",
+    "normalize.css": "^7.0.0"
+  },
+  "author": "Herman Semykozov",
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-html-partial": "^1.0.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-open": "^2.0.0",
+    "jshint": "^2.9.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:GSemikozov/trades-cabinet.git"
+  }
+}

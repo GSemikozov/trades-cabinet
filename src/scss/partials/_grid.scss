@@ -146,16 +146,16 @@ and (-webkit-min-device-pixel-ratio: 2) {
 @media only screen
 and (max-device-width: 767px)
 and (-webkit-min-device-pixel-ratio: 1) {
-  .tab-pane.is-active, .grid.grid--1of3 {
-    display: block;
+  .tab-pane.is-active {
+    display: block !important;
     width: 100%;
   }
 }
 @media only screen
 and (max-device-width: 767px)
 and (-webkit-min-device-pixel-ratio: 2) {
-  .tab-pane.is-active, .grid.grid--1of3 {
-    display: block;
+  .tab-pane.is-active {
+    display: block !important;
     width: 100%;
   }
 }

@@ -1,64 +1,44 @@
-# Simple starter kit for static front-end projects
-developed to create html/css layouts based on own slyleguide, dependencies etc.
+# Simple starter kit for the project
+developed to create html/css layout based on multitrade-page.png as main mockup.
+
+## Description
+Task for paxfull company.
+- clear html5/css3 without using any css-frameworks,
+- css compiling from scss,
+- dev-server, live-reload, html/css/js compilation, images optimization realised via gulp,
+- vanilla javascript - for some js functionality ('release-bitcoins' button, tabs, mobile menu and chat room (messages saves to localStorage)).
 
 ## Installation
 
 - Clone "Master" Project into local directory:
 ```bash
-git clone git@git.int.fxservice.com:ONPR/static-frontend.git
+git clone git@github.com:GSemikozov/trades-cabinet.git
 ```
 
 - Run `npm install` for installing all dependencies:
 ```bash
-cd static-frontend
 npm install
 ```
 
-*Also if need to add some additional components/libraries for the framework - just use bower.json in this case.
-Add all necessary components as dependencies in bower.json file and run `bower install` in your root directory:*
-```bash
-bower install
-```
-*all components will appear in 'components' directory. Just  plug them in your view.*
-
-## Usage
-
-- to compile all styles from scss to css use next command:
-`gulp sass`.
-
-- to minify all styles - use next command:
-`gulp css-minify`.
-
-- to compile and minify all styles - use next command:
-`gulp css`.
-
-- to minify all images - use next command:
-`gulp imgmin` or `gulp images`.
-
-- to compile js-scripts and if need concat them into bundle.js - use next command:
-`gulp scripts`.
-
-- to watch your changes in scss/js/html files in development mode - use next command:
-`gulp serv`.
-Then you'll be able to serv your project here - localhost:8080
-
-- as default task you can use next command:
+- as default gulp task you can use next command:
 `gulp` ( == gulp css + gulp imgmin + gulp scripts + gulp server + gulp livereload + gulp watch).
+Then you'll be able to serv your project here - localhost:8080 (or static compiled index.html file from the dist directory will be opened automatically)
 
 ## Usage of scss partials (based on flexboxes)
 
-All new scss modules/components are adding in 'src/scss/partials' directory. Then new file is including in 'custom.scss'.
+All new scss modules/components are adding to 'src/scss/partials' directory. Then new file is including in 'custom.scss'.
 
-Currently we have next (empty) Partials:
+Currently we have next partials:
 
 Components:
 - header,
 - navbar,
-- footer,
+- mobile-menu,
+- main-content (tab-panel, tab-content),
 
 Helpers:
 - additional-classes,
-- spacing-classes,
+- spacing-classes (commented),
 
 Grid:
 - grid,
@@ -69,7 +49,13 @@ Variables:
 
 Mixins:
 - `respond-to()` - responsive utilities;
-- `themify()` - we have three themes: default, blue and violet;
+- `themify()` - we have three themes: default, blue and dark;
 - `no-selection()` - for select;
 - `ellipsis()` and `multiLineEllipsis()` - for text that has a limited amount of rows;
--  `button-bg()` - to create new buttons with own background- font- and border-color;
+- `button-bg()` - to create new buttons with own background- font- and border-color;
+
+## Vanilla Javascript partials (src/js/partials)
+- chat,
+-mobile-menu,
+release-bitcoins,
+tabs.

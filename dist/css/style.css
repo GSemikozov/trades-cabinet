@@ -778,7 +778,8 @@ nav .navbar-menu .navbar-item {
       .tab-panel .tab-panel__tabs .tab-panel__tab-item.is-active > a .trade-info .buyer-username, .tab-panel .tab-panel__tabs .tab-panel__tab-item:hover > a .trade-info .buyer-username, .tab-panel .tab-panel__tabs .tab-panel__tab-item:focus > a .trade-info .buyer-username, .tab-panel .tab-panel__tabs .tab-panel__tab-item:active > a .trade-info .buyer-username {
         color: #5D7495; }
       .tab-panel .tab-panel__tabs .tab-panel__tab-item.is-active > a .trade-info .payment-method, .tab-panel .tab-panel__tabs .tab-panel__tab-item:hover > a .trade-info .payment-method, .tab-panel .tab-panel__tabs .tab-panel__tab-item:focus > a .trade-info .payment-method, .tab-panel .tab-panel__tabs .tab-panel__tab-item:active > a .trade-info .payment-method {
-        color: #2A2A33; }
+        color: #2A2A33;
+        font-weight: 500; }
       .tab-panel .tab-panel__tabs .tab-panel__tab-item.is-active > a .trade-info .amount, .tab-panel .tab-panel__tabs .tab-panel__tab-item:hover > a .trade-info .amount, .tab-panel .tab-panel__tabs .tab-panel__tab-item:focus > a .trade-info .amount, .tab-panel .tab-panel__tabs .tab-panel__tab-item:active > a .trade-info .amount {
         color: #2A2A33; }
     .tab-panel .tab-panel__tabs .tab-panel__tab-item > a {
@@ -1130,7 +1131,7 @@ nav .navbar-menu .navbar-item {
           font-size: .875rem;
           font-weight: 600;
           margin: 5px 0 0;
-          color: #B9BCBD; }
+          color: #373D43; }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   #logo {

@@ -8,7 +8,7 @@
                 e.preventDefault();
                 activeTab.querySelector('.paid-status-text').innerText = 'paid';
                 activeTab.querySelector('.paid-status-text').classList.add('is-paid');
-                self.innerText = 'released';
+                self.innerText = 'Released';
                 self.classList.add('disabled');
             } else {
                 self.innerText = 'Released';

@@ -9,8 +9,13 @@
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <meta content='IE=9' http-equiv='X-UA-Compatible'>
     <meta content='initial-scale=1.0, user-scalable=no' name='viewport'>
-
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/common/common.min.css">
+    <link rel="stylesheet" href="css/header/header.min.css">
+    <link rel="stylesheet" href="css/navbar/navbar.min.css">
+    <link rel="stylesheet" href="css/mobile-menu/mobile-menu.min.css">
+    <link rel="stylesheet" href="css/tab-panel/tab-panel.min.css">
+    <link rel="stylesheet" href="css/tab-content/tab-content.min.css">
 
 </head>
 <body class="theme-default">
@@ -21,10 +26,10 @@
     <header role="banner">
         <partial src="_header_top_panel.html" title="header"></partial>
         <partial src="_main_menu.html" title="main-menu"></partial>
-        <partial src="_mobile_menu.html" title="mobile-menu"></partial>
     </header>
+    <partial src="_mobile_menu.html" title="mobile-menu"></partial>
     <main role="main">
-        <div class="grid grid--1of4">
+        <div class="grid grid--1of4 tabs-main">
             <div class="grid-cell">
                 <partial src="_tab_panel.html" title="tab-panel"></partial>
             </div>

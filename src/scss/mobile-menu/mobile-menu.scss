@@ -37,7 +37,7 @@
     font-weight: 500;
     font-size: 1rem;
     display: block;
-    padding: 20px;
+    padding: 12px 20px;
     a {
       font-weight: 500;
       text-decoration: none;
@@ -49,19 +49,23 @@
     }
     &.is-small {
       font-size: .9rem;
-      padding: 15px 20px;
+      padding: 12px 20px;
     }
   }
 }
 .mobile-menu-wrapper .closebtn {
   position: absolute;
-  top: 30px;
-  left: 20px;
-  height: 17px;
-  width: 19px;
+  top: 6px;
+  right: 0;
+  padding: 20px;
   display: inline-block;
   z-index: 1;
-  transform: rotate(-45deg);
+  transform: rotate(-90deg);
+  text-align: center;
+  span {
+    vertical-align: middle;
+    display: inline-block;
+  }
 }
 .overlay {
   position: fixed;

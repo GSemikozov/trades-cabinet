@@ -4,7 +4,7 @@ import  gulp            from 'gulp';
 import  autoprefixer    from 'gulp-autoprefixer';
 import  sass            from 'gulp-sass';
 import  concat          from 'gulp-concat';
-import  cssmin          from 'gulp-cssmin';
+import  cssmin          from 'gulp-minify-css';
 import  imagemin        from 'gulp-imagemin';
 import  rename          from 'gulp-rename';
 import  uglify          from 'gulp-uglify-es';
@@ -16,6 +16,25 @@ import  connect         from 'gulp-connect';
 import  open            from 'gulp-open';
 import  htmlPartial     from 'gulp-html-partial';
 import  notify          from 'gulp-notify';
+import  rimraf          from 'rimraf';
+
+var path = {
+    build: {
+        html: 'dist/',
+        js: 'dist/js/',
+        css: 'dist/css/',
+        img: 'dist/images/',
+        fonts: 'dist/fonts/'
+    },
+    src: {
+        html: 'src/*.html',
+        js: 'src/js/**/*.js',
+        style: 'src/scss/**/*.scss',
+        img: 'images/**/*.*',
+        fonts: 'fonts/**/*.*'
+    },
+    clean: './dist'
+};
 
 //local-server
 gulp.task('server', () => {
@@ -38,23 +57,28 @@ gulp.task('watch', () => {
 });
 
 gulp.task('sass', () => {
-    gulp.src('./src/scss/style.scss')
+    gulp.src(path.src.style)
     .pipe(sass())
     .pipe(autoprefixer())
-    .pipe(gulp.dest('./dist/css'));
+    .pipe(gulp.dest(path.build.css));
 });
 
 gulp.task('css-minify', () => {
-    gulp.src('./dist/css/*.css')
+    gulp.src(path.build.css + '**/*.css')
         .pipe(cssmin())
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./dist/css/min'));
+        .pipe(gulp.dest(path.build.css));
+});
+
+gulp.task('fonts', () => {
+    gulp.src(path.src.fonts)
+        .pipe(gulp.dest(path.build.fonts));
 });
 
 gulp.task('imgmin', () => {
-    return gulp.src('./images/**/*')
+    return gulp.src(path.src.img)
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{
@@ -66,28 +90,28 @@ gulp.task('imgmin', () => {
                 optimizationLevel: 3
             }), svgo()]
         }))
-        .pipe(gulp.dest('./images'));
+        .pipe(gulp.dest(path.build.img));
 });
 
 // Scripts
 gulp.task('scripts', () => {
-    return gulp.src('src/js/**/*.js')
+    return gulp.src(path.src.js)
         .pipe(concat('main.js'))
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest(path.build.js))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest(path.build.js))
         .pipe(notify({ message: 'Scripts task complete' }));
 });
 
 //inject html partials to index
 gulp.task('html', () => {
-    gulp.src(['src/templates/index.html'])
+    gulp.src([path.src.html])
         .pipe(htmlPartial({
             basePath: 'src/templates/'
         }))
         .pipe(rename({ basename: "index" }))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest(path.build.html));
 });
 
 // Open one file with default application
@@ -96,7 +120,11 @@ gulp.task('open', () => {
         .pipe(open());
 });
 
+gulp.task('clean', function (cb) {
+    rimraf(path.clean, cb);
+});
+
 gulp.task('css', ['sass', 'css-minify']);
 gulp.task('images', ['imgmin']);
 gulp.task('serv', ['server', 'livereload', 'watch']);
-gulp.task('default', ['css', 'imgmin', 'scripts', 'open', 'server', 'livereload', 'watch']);
+gulp.task('default', ['clean', 'html', 'css', 'imgmin', 'fonts', 'scripts', 'open', 'server', 'livereload', 'watch']);

@@ -1,0 +1,136 @@
+@import "variables",
+        "mixins",
+        "icons",
+        "grid",
+        "buttons",
+        "theme-variables",
+        "ie",
+        "additional-classes",
+        "spacing-classes";
+
+@font-face {
+    font-family: Lato-Condensed;
+    font-weight: normal;
+    font-style: normal;
+    src: url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Light.eot'); /* IE9 Compat Modes */
+    src: url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Light.woff2') format('woff2'), /* Modern Browsers */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Light.woff') format('woff'), /* Modern Browsers */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Light.ttf') format('truetype');
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+    font-family: Lato-Bold;
+    font-weight: normal;
+    font-style: normal;
+    src: url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Black.eot'); /* IE9 Compat Modes */
+    src: url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Black.woff2') format('woff2'), /* Modern Browsers */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Black.woff') format('woff'), /* Modern Browsers */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Black.ttf') format('truetype');
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+    font-family: Lato-Demi;
+    font-weight: normal;
+    font-style: normal;
+    src: url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Bold.eot'); /* IE9 Compat Modes */
+    src: url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Bold.woff2') format('woff2'), /* Modern Browsers */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Bold.woff') format('woff'), /* Modern Browsers */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Bold.ttf') format('truetype');
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+    font-family: Lato-Regular;
+    font-weight: normal;
+    font-style: normal;
+    src: url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Regular.eot'); /* IE9 Compat Modes */
+    src: url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+    url('../../fonts/Lato2OFLWeb/Lato/fonts/Lato-Regular.ttf') format('truetype');
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: normal;
+    src: url('../../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    text-rendering: optimizeLegibility;
+}
+
+/* clearfix */
+.clearfix {
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    font-size: 16px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    min-width: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Lato-Regular, Roboto, 'Open Sans', sans-serif;
+    font-size: 1rem;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    position: relative;
+    @include respond-to(phones) {
+        overflow: hidden;
+    }
+}
+
+body, html {
+    @include respond-to(phones) {
+        height: 100%;
+    }
+}
+
+.text-orange {
+    color: #f8ca85;
+}
+.text-green {
+    color: #3CC875;
+}
+.text-red {
+    color: #E00D28;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}

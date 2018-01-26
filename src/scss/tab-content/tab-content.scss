@@ -1,3 +1,4 @@
+@import "../common/mixins";
 .tab-content {
   height: 100%;
   .tab-pane {
@@ -6,6 +7,86 @@
     &.is-active {
       display: flex;
       background-color: #fff;
+      .trade-info.is-active {
+        @include respond-to(tablets-small) {
+          display: block;
+          //position: absolute;
+          //top: 0;
+          //left: 0;
+          //right: 0;
+          //min-height: 100vh;
+        }
+      }
+      .chat-room.is-active {
+        @include respond-to(tablets-small) {
+          display: flex;
+        }
+      }
+      @include respond-to(tablets-small) {
+        display: none;
+      }
+      &.is-active-mobile {
+        @include respond-to(tablets-small) {
+          display: flex;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          min-height: 100vh;
+          background-color: #efefef;
+          .top-bar {
+            background-color: #31374D;
+            height: 76px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 14px 15px;
+            z-index: 9999;
+          }
+        }
+      }
+    }
+    .btn-back-wrapper {
+      .button-circle {
+        &.btn-back {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff; //#B5BEC7
+          //position: absolute;
+          //left: 0;
+          @include respond-to(tablets-small) {
+            display: flex;
+          }
+        }
+      }
+    }
+    .control-tabs {
+      height: 100%;
+      .control-tabs__item {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        opacity: .2;
+        @include respond-to(tablets-small) {
+          justify-content: center;
+        }
+        @include respond-to(phones) {
+          justify-content: flex-end;
+        }
+        &:hover, &:active, &:focus {
+          cursor: pointer;
+        }
+        &.is-active {
+          opacity: 1;
+        }
+      }
     }
     .chat-room {
       border-left: 1px solid #CED6E2;
@@ -16,10 +97,37 @@
       padding: 15px;
       display: flex;
       flex-direction: column;
+      @include respond-to(tablets-small) {
+        display: none;
+        padding: 0;
+        min-height: 100vh;
+        & > header {
+          position: fixed;
+          top: 76px;
+          left: 0;
+          right: 0;
+          padding: 15px;
+          z-index: 9999;
+          background-color: #efefef;
+        }
+        & > footer {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 0;
+          z-index: 9999;
+          background-color: #ffffff;
+        }
+      }
       .chat-room__header {
         padding: 15px 80px 30px;
         position: relative;
         text-align: center;
+        @include respond-to(tablets-small) {
+          //padding: 0 15px 15px 60px;
+          padding: 0 60px 15px;
+        }
         &:after {
           content: '';
           position: absolute;
@@ -33,38 +141,70 @@
           position: absolute;
           left: 5px;
           top: 15px;
+          @include respond-to(tablets-small) {
+            left: 0;
+            top: 0;
+          }
         }
         .button-remove {
           position: absolute;
           right: 5px;
           top: 15px;
+          @include respond-to(tablets-small) {
+            right: 0;
+            top: 0;
+          }
         }
         .payment-method {
           font-size: 1.8rem;
           font-weight: 500;
           margin: 0 0 10px;
           color: #4D575E;
+          @include respond-to(tablets-small) {
+            font-size: 1.4rem;
+            //text-align: right;
+          }
         }
         .buyer-reputation {
+          @include respond-to(tablets-small) {
+            //text-align: right;
+          }
           .name {
             font-weight: 500;
             font-size: 1.4rem;
             color: #7A848C;
+            @include respond-to(tablets-small) {
+              font-size: 1.1rem;
+              //text-align: right;
+            }
           }
         }
         .reputation-status {
           color: #7A848C;
           font-weight: 500;
           font-size: 1.4rem;
+          @include respond-to(tablets-small) {
+            font-size: 1.1rem;
+          }
         }
       }
       .message-container {
         padding: 50px 0;
         flex: 1 0 auto;
+        @include respond-to(tablets-small) {
+          padding: 175px 0 80px;
+        }
         .scrollable-area {
           max-height: 600px;
           overflow: hidden;
           overflow-y: auto;
+          @include respond-to(tablets-small) {
+            height: calc(100vh - 250px);
+            max-height: none;
+          }
+          @include respond-to(phones) {
+            max-height: 600px;
+          }
         }
         @media all and (min-width: 1600px) {
           .scrollable-area {
@@ -73,9 +213,15 @@
         }
         .message-row {
           margin-bottom: 30px;
+          @include respond-to(tablets-small) {
+            padding: 0 15px;
+          }
           & > .grid-cell {
             flex: none;
             width: calc(100% - 50px);
+            @include respond-to(tablets-small) {
+              width: 100%;
+            }
           }
           .message-box {
             .publish-time {
@@ -151,7 +297,9 @@
         border: 1px solid #DADFE8;
         background-color: #fff;
         height: 60px;
+        //height: auto;
         padding: 0 80px 0 60px;
+        overflow: hidden;
         input, button {
           line-height: 58px;
           outline: none;
@@ -164,6 +312,8 @@
           border: none;
           padding: 19px 0;
           line-height: 1.4;
+          resize: none;
+          //resize: vertical;
         }
         .upload-file {
           position: absolute;
@@ -193,6 +343,18 @@
         #message-text {
           width: 100%;
           height: 100%;
+          position: relative;
+          z-index: 2;
+          @include respond-to(tablets-small) {
+            position: absolute;
+            width: calc(100% - 130px);
+            z-index: 9999;
+            overflow-x: hidden;
+            overflow-y: auto;
+            min-height: 58px;
+            bottom: 0;
+            padding: 19px 0 5px;
+          }
         }
         #send-message-btn {
           position: absolute;
@@ -209,6 +371,9 @@
           text-transform: uppercase;
           font-weight: 400;
           font-family: 'Lato-Bold', sans-serif;
+          @include respond-to(tablets-small) {
+            padding-right: 15px;
+          }
           &:focus, &:active {
             color: green;
           }
@@ -218,6 +383,17 @@
   }
   .trade-info {
     padding: 20px;
+    background-color: #fff;
+    @include respond-to(tablets-small) {
+      display: none;
+    }
+    &.is-active {
+      @include respond-to(tablets-small) {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 100px 0 0;
+      }
+    }
     .trade-info-title {
       font-size: 1.3rem;
       font-weight: 500;
@@ -245,6 +421,9 @@
         flex-direction: column;
         height: 100px;
         overflow: hidden;
+        @include respond-to(tablets-small) {
+          height: 85px;
+        }
         &:nth-child(2n) {
           border-right: none;
         }
@@ -280,9 +459,15 @@
     }
     .trade-vertical-info-list {
       margin-top: 50px;
+      @include respond-to(tablets-small) {
+        margin-top: 0;
+      }
       .trade-info-list-item {
         padding: 20px 10px;
         border-bottom: 1px solid #EBEBEB;
+        @include respond-to(tablets-small) {
+          padding: 15px;
+        }
         .title {
           text-transform: uppercase;
           font-weight: 400;

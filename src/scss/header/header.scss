@@ -1,3 +1,4 @@
+@import "../common/mixins";
 .header-top-panel {
   padding: 20px 0;
   background-color: #31374D;
@@ -5,7 +6,7 @@
 
 #logo {
   overflow: hidden;
-  @include respond-to(phones) {
+  @include respond-to(tablets-small) {
     height: 30px;
     width: auto;
   }
@@ -22,4 +23,19 @@
   right: 0;
   top: 9px;
   cursor: pointer;
+}
+
+#wrapper > header {
+  @include respond-to(tablets-small) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+#wrapper > main {
+  @include respond-to(tablets-small) {
+    padding-top: 80px;
+  }
 }

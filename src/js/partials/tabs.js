@@ -1,28 +1,45 @@
-function tabNav() {
-    // store tabs variable
-    var tabs = document.querySelectorAll('.tab-panel__tabs > .tab-panel__tab-item');
-
-    function myTabClicks(tabClickEvent) {
-        var clickedTab = tabClickEvent.currentTarget,
-            anchorReference = tabClickEvent.target,
+(function(){
+    function onTabClick(event){
+        var actives = document.querySelectorAll('.is-active'),
+            anchorReference = event.target,
             activePaneId = anchorReference.getAttribute('href'),
             activePane = document.querySelector(activePaneId),
-            contentPanes = document.querySelectorAll('.tab-pane');
+            contentPanes = document.querySelectorAll('.tab-pane'),
+            onceActivatedControlTabs = (function() {
+                var executed = false;
+                return function() {
+                    if (!executed) {
+                        executed = true;
+                        jsTabs('.activate-control-tabs', 1);
+                    }
+                };
+            })();
 
-        for (var i = 0; i < tabs.length; i++) {
-            tabs[i].classList.remove('is-active');
+        // deactivate existing active tab and panel
+        for (var i=0; i < actives.length; i++){
+            actives[i].className = actives[i].className.replace('is-active', '');
         }
-        clickedTab.classList.add('is-active');
-        tabClickEvent.preventDefault();
-        for (i = 0; i < contentPanes.length; i++) {
-            contentPanes[i].classList.remove('is-active');
+        if (window.innerWidth <= 1068) {
+            for (var j=0; j < contentPanes.length; j++){
+                contentPanes[j].className = contentPanes[j].className.replace('is-active-mobile', '');
+            }
         }
-        activePane.classList.add('is-active');
+
+        // activate new tab and panel
+        event.target.parentElement.className += ' is-active';
+        document.getElementById(activePaneId.split('#')[1]).className += ' is-active';
+        if (window.innerWidth <= 1068) {
+            activePane.classList.add('is-active-mobile');
+            if (activePane.classList.contains('is-active-mobile')) {
+                activePane.querySelector('.control-tabs').classList.add('activate-control-tabs');
+                setTimeout(function () {
+                    onceActivatedControlTabs();
+                }, 300);
+            }
+        }
     }
 
-    for (var i = 0; i < tabs.length; i++) {
-        tabs[i].addEventListener('click', myTabClicks)
-    }
-}
+    var el = document.querySelector('.tab-panel__tabs');
 
-window.addEventListener('load', tabNav);
+    el.addEventListener('click', onTabClick, false);
+})();
